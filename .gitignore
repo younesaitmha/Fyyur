@@ -294,6 +294,8 @@ temp/
 # Django stuff:
 
 # Flask stuff:
+## flask migrations
+migrations/
 
 # Scrapy stuff:
 
