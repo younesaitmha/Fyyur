@@ -19,7 +19,39 @@
 		</h3>
 	</div>
 	<div class="col-sm-6 hidden-sm hidden-xs">
-		<img id="front-splash" src="{{ url_for('static',filename='img/front-splash.jpg') }}" alt="Front Photo of Musical Band" />
+		<img id="front-splash" src="{{ url_for('static', filename='img/front-splash.jpg') }}" alt="Front Photo of Musical Band" />
+	</div>
+</div>
+<div style="border-top: 2px solid black;"></div>
+<div class="row">
+	<h3>Recent Listed Venues</h3>
+	<div class="row">
+	    {% for venue in venues %}
+	    <div class="col-sm-4">
+	        <div class="tile">
+	        	<h4>{{ venue.name }}</h4>
+	        	<h4 style="background-color: rgb(255, 183, 7);">ID: {{ venue.id }}</h4>
+	            <img src="{{ venue.image_link }}" alt="picture of {{ venue.name }}"/>
+	            <h5><a style="cursor: pointer;" href="/venues/{{ venue.id }}">{{ venue.name }}</a></h5>
+	        </div>
+	    </div>
+	    {% endfor %}
+	</div>
+</div>
+<div style="border-top: 2px solid black;"></div>
+<div class="row">
+	<h3>Recent Listed Artists</h3>
+	<div class="row">
+	    {% for artist in artists %}
+			<div class="col-sm-4">
+				<div class="tile">
+					<h4>{{ artist.name }}</h4>
+					<h4 style="background-color: rgb(255, 183, 7);">ID: {{ artist.id }}</h4>
+					<img src="{{ artist.image_link }}" alt="picture of {{ artist.name }}"/>
+					<h5><a style="cursor: pointer;" href="/artists/{{ artist.id }}">{{ artist.name }}</a></h5>
+				</div>
+			</div>
+	    {% endfor %}
 	</div>
 </div>
 {% endblock %}
