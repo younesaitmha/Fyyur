@@ -1,13 +1,22 @@
 import os
-SECRET_KEY = os.urandom(32)
+from dotenv import load_dotenv
+
+load_dotenv()
+
+SECRET_KEY = os.getenv('SECRET_KEY')
 # Grabs the folder where the script runs.
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+# Enable the development mode.
+FLASK_ENV = os.getenv('FLASK_ENV')
 # Enable debug mode.
 DEBUG = True
 
-# Connect to the database
+# secret key for CSRF token
+WTF_CSRF_SECRET_KEY = os.getenv('WTF_CSRF_SECRET_KEY')
+# desable globally CSRF token
+WTF_CSRF_ENABLED = False
 
-# TODO IMPLEMENT DATABASE URL
-SQLALCHEMY_DATABASE_URI = 'postgresql://younes:younes@localhost:5432/fyyur_db'
+# Connect to the database and DATABASE URL
+SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
 SQLALCHEMY_TRACK_MODIFICATIONS = False
