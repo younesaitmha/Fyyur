@@ -60,6 +60,7 @@ npm install bootstrap@3
   ├── models.py *** Contains SQLAlchemy models.
   ├── forms.py *** Contains forms
   ├── requirements.txt *** The dependencies we need to install with "pip3 install -r requirements.txt"
+  ├── .env *** create this file for the environment variables
   ├── static
   │   ├── css
   │   ├── font
@@ -123,8 +124,14 @@ pip install -r requirements.txt
 
 5. **Run the development server:**
 ```
-export FLASK_APP=myapp
-export FLASK_ENV=development # enables debug mode
+on the file .env you created add this environment variables
+FLASK_ENV='development'
+SQLALCHEMY_DATABASE_URI='postgresql://username:password@localhost:5432/fyyur_db'
+SECRET_KEY='mysecretkey'
+WTF_CSRF_SECRET_KEY='mysecretkey'
+```
+
+```
 python3 app.py
 ```
 
